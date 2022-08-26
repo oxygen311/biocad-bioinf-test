@@ -1,0 +1,75 @@
+name:                biocad-bioinf-test
+version:             0.1.0.0
+github:              "githubuser/biocad-bioinf-test"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2022 Author name here"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/biocad-bioinf-test#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- cobot-io
+- text >= 1.2.2.1 && < 2.1
+- containers >= 0.5.7.1 && < 0.7
+- vector
+- linear
+- qhull
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  light-main-bin:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - biocad-bioinf-test
+  hard-main-bin:
+    main:                Main.hs
+    source-dirs:         app-hard
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - biocad-bioinf-test
+
+tests:
+  biocad-bioinf-test-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - biocad-bioinf-test
+    - hspec >= 2.4.1
